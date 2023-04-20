@@ -1,9 +1,16 @@
 import './App.css';
+import Newnavbaar from './components/header/Newnavbaar';
+
+
+import Navbar from './components/header/Navbaar';
+
 
 function App() {
   return (
-    <div className="App">
-       <h1> Hellooo</h1>
+    <div >
+      <Navbar />
+      <Newnavbaar />
+
     </div>
   );
 }

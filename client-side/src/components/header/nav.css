@@ -1,0 +1,112 @@
+header{
+    background-color:#131921;
+    width:100%;
+    height: 65px;
+    position: fixed;
+    top:0;
+    z-index:2;
+}
+
+header nav{
+    display: flex;
+    justify-content:space-around;
+    width:100%;
+    height:100%;
+    margin:auto;
+    position: relative;
+    top:10px;
+}
+
+
+header nav .logo{
+    width:100px;
+    height:85px;
+    position: relative;
+    bottom:15px;
+}
+header nav .left input{
+    width:400px;
+    height:40px;
+    border:none;
+    padding-left:10px;
+    font-size:14px;
+
+}
+
+header nav .left{
+    display:flex;
+    justify-content:space-around;
+    flex: .7;
+}
+
+ 
+header nav .left .nav_searchbaar{
+    display:flex;
+    
+}
+
+header nav .left .search_icon{
+    width:40px;
+    height:32px;
+    display:flex;
+    background-color:deepskyblue;
+    cursor: pointer;
+    padding:5px;
+}
+header nav .right{
+    display:flex;
+    justify-content:space-around;
+    flex: .3;
+}
+
+header nav .right .nav_btn{
+    color:#fff;
+    margin-top:15px;
+    cursor: pointer;
+    
+}
+header nav .right .cart_btn{
+    display:flex;
+    justify-content:space-around;
+    color:#fff;
+    margin-top:15px;
+    gap:10px;
+    cursor: pointer;
+    
+}
+header nav .right p{
+    color:#fff;
+    margin-top:0px;
+    
+}
+header nav .right a{
+    color:#fff;
+    text-decoration:none;
+    
+}
+header nav .right .avtar{
+    margin-top:5px;
+    cursor: pointer;
+}
+
+ @media (max-width:800px) {
+    header nav{
+        overflow:hidden;
+    }
+    header nav .logo{
+        width:50px;
+        margin-top: 0px;
+    }
+    header nav .right .nav_btn,
+    header nav .right .avtar,
+    header nav .right .avtar2{
+        display:none;
+    }
+
+    header nav .left input{
+        width:150px;
+    }
+    header nav .left .cart_btn{
+        margin-right:0;
+    }
+ }
