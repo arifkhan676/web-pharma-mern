@@ -4,6 +4,7 @@ import "./home.css"
 import Slide from './Slide'
 import pic from "../images/hyg.jpg"
 import pic2 from "../images/joya.jpg"
+import Footer from './Footer'
 
 const Maincomp = () => {
 
@@ -30,7 +31,7 @@ const Maincomp = () => {
       <Slide title="Best seller"/>
       <Slide title="Upto 80% off"/>
       
-
+      <Footer />
     </div>
   )
 }
