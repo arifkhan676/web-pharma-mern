@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Banner from './Banner'
 import "./home.css"
 import Slide from './Slide'
 import pic from "../images/hyg.jpg"
 import pic2 from "../images/joya.jpg"
 import Footer from './Footer'
+import { getproducts } from '../redux/actions/action'
+import { useDispatch,useSelector } from 'react-redux'
 
 const Maincomp = () => {
+  const {products} = useSelector(state => state.getproductsdata);
+  console.log(products);
+  
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(getproducts());
+  },[dispatch]);
 
   return (
     <div className='home_section'>
