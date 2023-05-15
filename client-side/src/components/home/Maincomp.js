@@ -26,7 +26,7 @@ const Maincomp = () => {
 
       <div className='slide_part'>
         <div className='left_slide'>
-        <Slide title="Deal of the day" />
+        <Slide title="Deal of the day" products={products} />
         </div>
         <div className='right_slide'>
           <h4>Festivals latest launch</h4>
@@ -34,12 +34,12 @@ const Maincomp = () => {
            <a href='www.google.com' >See more</a>
         </div>
       </div>
-      <Slide title="Todays Deal"/>
+      <Slide title="Todays Deal" products={products} />
       <div className='center_img'>
       <img src={pic} alt="" />
         </div>
-      <Slide title="Best seller"/>
-      <Slide title="Upto 80% off"/>
+      <Slide title="Best seller" products={products} />
+      <Slide title="Upto 80% off" products={products}  />
       
       <Footer />
     </div>
