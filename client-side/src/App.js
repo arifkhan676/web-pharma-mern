@@ -7,6 +7,7 @@ import Maincomp from './components/home/Maincomp';
 import { Route, Routes } from 'react-router-dom';
 import Cart from './components/cart/Cart';
 import Buynow from './components/buy/Buynow';
+import Footer from './components/home/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/getproductsone/:id" element={<Cart/>}> </Route>
         <Route path="/buynow" element={<Buynow/>}> </Route>
       </Routes>
+      <Footer />
 
     </div>
   );

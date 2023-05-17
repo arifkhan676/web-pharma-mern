@@ -1,9 +1,10 @@
-import { Divider } from '@mui/material';
 import React from 'react'
+import { Divider } from '@mui/material';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { products } from './productdata';
+//import { products } from './productdata';
 import "./slide.css"
+import { NavLink } from 'react-router-dom';
 
 const responsive = {
     desktop: {
@@ -20,44 +21,47 @@ const responsive = {
     }
 };
 
-const Slide = (props) => {
+const Slide = ({ title, products }) => {
     return (
         <div className='products_section'>
             <div className='products_deal'>
-                <h3> {props.title} </h3>
+                <h3> {title} </h3>
                 <button className='view_btn' > View all </button>
             </div>
             <Divider />
             <Carousel
                 responsive={responsive}
-                infinite={true} 
+                infinite={true}
                 draggable={false}
                 swipeable={true}
                 showDots={false}
                 centerMode={true}
                 autoPlay={true}
-                autoPlaySpeed={2000}
+                autoPlaySpeed={4000}
                 keyBoardControl={true}
                 removeArrowOnDeviceType={['tablet', 'mobile']}
                 dotListClass='custom-dot-list-style'
                 itemClass='carousel-item-padding-40-px'
                 containerClass='carousel-container'
             >
-            {
-                products.map((e)=>{
-                    return (
-                        <div className='products_items' >
-                             <div className='product_img' >
-                              <img src={e.url} alt='productitem' /> 
-                            </div>
-                            <p className='products_name'    > {e.title.shortTitle} </p>
-                            <p className='products_offer'    > {e.discount} </p>
-                            <p className='products_explore' > {e.tagline} </p>
-                        </div> 
+                {
+                    products.map((e) => {
+                        return (
+                            <NavLink to={`/getproductsone/${e.id}`} >
+                                <div className='products_items' >
+                                    <div className='product_img' >
+                                        <img src={e.url} alt='productitem' />
+                                    </div>
+                                    <p className='products_name'    > {e.title.shortTitle} </p>
+                                    <p className='products_offer'    > {e.discount} </p>
+                                    <p className='products_explore' > {e.tagline} </p>
+                                </div>
+                            </NavLink>
+
                         )
-                })
-            }
-         </Carousel>
+                    })
+                }
+            </Carousel>
 
         </div>
     )

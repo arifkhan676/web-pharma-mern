@@ -35,8 +35,6 @@ const Footer = () => {
             <div class="lastdetails">
                <img src="https://static.vecteezy.com/system/resources/previews/000/271/019/original/vector-pharmacy-web-banner.jpg" alt="" />
                <p> Here is our web pharma and health care system  </p> 
-               
-               
                 </div>
                 </div>
 

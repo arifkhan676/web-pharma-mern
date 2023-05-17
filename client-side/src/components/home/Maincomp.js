@@ -40,8 +40,6 @@ const Maincomp = () => {
         </div>
       <Slide title="Best seller" products={products} />
       <Slide title="Upto 80% off" products={products}  />
-      
-      <Footer />
     </div>
   )
 }
