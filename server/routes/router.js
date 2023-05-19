@@ -2,6 +2,9 @@ const express = require("express");
 const router = new express.Router();
 const Products = require("../models/productSchema");
 const USER = require("../models/userSchema");
+const bcrypt = require("bcryptjs");
+const authenicate = require("../middleware/authenicate");
+
 
 // get products through API
 router.get("/getproducts", async(req,res)=>{
@@ -31,6 +34,7 @@ router.get("/getproducts", async(req,res)=>{
  });
 
  //register data
+
  router.post("/register",async(req,res)=>{
    // console.log(req.body);
 
@@ -52,14 +56,75 @@ router.get("/getproducts", async(req,res)=>{
             fname, email, mobile, password, cpassword
         });
 
+        //
+
         const storedata = await finalUser.save();
          console.log(storedata + "user successfully added");
         res.status(201).json(storedata);
    }
  } catch(error){
-      
+    console.log("its error");
+    res.status(422).send(error);
+
    }
 
  });
+
+
+  //login  data
+
+   router.post("/login",async(req,res)=>{
+    const {email,password} = req.body;
+
+    if(!email || !password){
+       res.status(400).json({error:"fill the details"});
+    }
+    try{
+        const loginUser = await USER.findOne({email:email});
+        console.log(loginUser +"user value ");
+
+        if(loginUser){
+            const isMatch = await bcrypt.compare(password,loginUser.password);
+            console.log(isMatch + " pass match" );
+          
+           //JWT token generate
+            const token = await loginUser.generateAuthtoken();
+            console.log(token);
+
+            res.cookie("web-pharma",token,{
+             expires:new Date(Date.now()+900000),
+             httpOnly:true
+            })
+
+            if(!isMatch){
+                res.status(400).json({error:"doesn't match password"});
+            }else{
+                res.status(201).json(loginUser);
+            }
+
+        }else{
+            res.status(400).json({error:"Invalid details"});
+
+        }
+    }
+    catch(error){
+        res.status(201).json({error:"Invalid address"});
+    }
+   })
+
+   //adding data into cart
+
+   router.post("/addcart/:id",authenicate,async(req,res,next)=>{
+        try {
+            const {id} = req.params;
+            const cart = Products.findOne({id:id});
+            console.log(cart);
+            
+            const UserContact = await USER.findOne({_id:req.userID});
+
+        } catch (error) {
+            console.log(error);
+        }
+   })
 
 module.exports = router;
