@@ -3,6 +3,9 @@ import "./sign.css";
 import logo from '../images/logo.png'
 import { NavLink } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Signup = () => {
 
   const [userdata,setuserData] = useState({
@@ -25,6 +28,61 @@ const Signup = () => {
     });
   }
 
+
+  const senddata = async(e)=>{
+       e.preventDefault();
+       const { fname, email, mobile, password, cpassword } = userdata;
+        /*   if I want to show in specific field
+       if(fname===""){
+        toast.warn("Name Invalid Deatils!",{
+          position:"top-center"
+      });
+       }else if(email===""){
+        toast.warn("Email Invalid Deatils!",{
+          position:"top-center"
+      });
+       }else{
+        const res = await fetch("register",{
+          method:"POST",
+          headers: {
+            "Content-Type": "application/json"
+        },
+          body:JSON.stringify({
+            fname, email, mobile, password, cpassword
+          })
+         });
+         const data = await res.json();
+       }
+      
+
+       */
+       const res = await fetch("register",{
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json"
+      },
+        body:JSON.stringify({
+          fname, email, mobile, password, cpassword
+        })
+       });
+       const data = await res.json();
+      // console.log(data);
+      if(res.status === 422 || !data ){
+        toast.error("Invalid Deatils!",{
+          position:"top-center"
+      }); }
+      else{
+        toast.success("Registration Successfully done 😃!",{
+            position:"top-center"
+        });
+         setuserData({...userdata,fname:"",
+        email:"",
+        mobile:"",
+        password:"",
+        cpassword:""})
+      }
+  }   
+
   return (
     < div  >
     <section>
@@ -33,7 +91,7 @@ const Signup = () => {
           <img className="logo" src={logo} alt="pharmalogo" />
           </div>
           <div className="sign_form">
-            <form action="">
+            <form method="POST">
               <h2>Sign Up</h2>
               <div className="form_data">
                 <label htmlFor="fname">Your name</label>
@@ -53,9 +111,9 @@ const Signup = () => {
                 </div>
                 <div className="form_data">
               <label htmlFor="cpassword">Confirm Password</label>
-                <input onChange={takeInput}  type="cpassword" name='cpassword' id='password'  placeholder='at least 6 characters'   value={userdata.cpassword}  />
+                <input onChange={takeInput}  type="password" name='cpassword' id='password'  placeholder='at least 6 characters'   value={userdata.cpassword}  />
                 </div>
-                <button className='signin_btn' > Create Account </button>
+                <button className='signin_btn' onClick={senddata} > Continue </button>
                 <div className="signin_info">
               <p>Already have an account?</p>
               <NavLink to='/register' > Sign Up </NavLink>
@@ -64,7 +122,8 @@ const Signup = () => {
 
             </form>
           </div>
-      
+          <ToastContainer />
+
 
         </div>
 

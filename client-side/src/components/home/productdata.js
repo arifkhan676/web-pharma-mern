@@ -12,7 +12,7 @@ export const products = [
             cost: 625,
             discount: '47%'
         },
-        description: 'This item is healthy and hygenic product for baby and its useful for their health',
+        description: 'This item is healthy and hygenic product for baby and its useful for their health,This product is makes with natural ingredients ,however, this is why we like the product that is worth of cost',
         discount: 'Extra 10% Off', 
         tagline: 'Deal of the day' 
     },

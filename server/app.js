@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 require("./db/conn");
 const router = require("./routes/router");
-
+const cookieParser = require("cookie-parser");
 
 const Products = require("./models/productSchema.js")
 const DefaultData = require("./defaultdata.js");

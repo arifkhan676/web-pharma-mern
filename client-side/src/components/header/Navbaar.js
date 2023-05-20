@@ -5,6 +5,7 @@ import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from "../images/logo.png";
+import {NavLink} from "react-router-dom"
 
 const Navbaar = () => {
     return (
@@ -25,6 +26,7 @@ const Navbaar = () => {
                     </div>
                     <div className='right' >
                         <div className='nav_btn' >
+                        <NavLink to="/login" > <p>Sign In</p> </NavLink>    
                         </div>
                         <div className='cart_btn' >
                             <Badge badgeContent={4} color="primary">
