@@ -38,6 +38,7 @@ footer .footer_container .footr_details_one p{
 
 footer .lastdetails{
     background-color: #131A22;
+    padding:2px;
 }
 
 footer img{
@@ -46,6 +47,8 @@ footer img{
     margin: 50px auto auto auto;
     text-align: center;
     padding-top: 20px;
+    padding-top: 10px;
+
 }
 
 footer p{
