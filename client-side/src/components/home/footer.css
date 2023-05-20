@@ -24,6 +24,7 @@ footer .footer_container{
 footer .footer_container .footr_details_one h3{
     font-size: 16px;
     text-align: left;
+    padding:5px;
 }
 
 footer .footer_container .footr_details_one p{
@@ -37,8 +38,7 @@ footer .footer_container .footr_details_one p{
 
 
 footer .lastdetails{
-    background-color: #131A22;
-    height:20vh;
+    background-color: #131A22; 
 }
 
 footer img{
