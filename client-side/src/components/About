@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js">
+
+<!-- g-fonts -->
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<!-- g-font  awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+<script src="https://kit.fontawesome.com/ee60d4f9a6.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+
+<section class="head-about">
+    <div class="container">
+
+    <div class="about">
+        <h2>Medica Healthcare aims to empower patients <br> to better manage their health</h2>
+    <h4>Our Mission</h4>
+    <p>Arogga brings to you a digital platform for all your healthcare needs from genuine medicines to vitamins, 
+        Health consultations, and even grocery collection conveniently from your home.</p>
+ <a href="product.php"> <button type="button" class="btn btn-warning btn-lg">Visit the Shop</button> </a> 
+
+    </div>
+    </div>
+    </section>
+
+
+<section class="feature-sec" id="bout">
+
+    <div class="middle-box">
+    <div class="container-fluid">
+        <div class="row">
+      <div class="feature col-lg-4">
+      <i class="icon fas fa-check-circle fa-4x"></i>
+      <h4>E-Pharmacy</h4>
+      <p>Order medicines and healthcare products online and get it delivered to your door</p>
+      </div>
+      <div class="feature col-lg-4">
+      <i class="icon far fa-dot-circle fa-4x"></i>
+      <h4>Doctor Consultation</h4>
+      <p>On-demand doctor appointments and video solution capabilities</p>
+      </div>
+      <div class="feature col-lg-4">
+      <i class="icon fas fa-heart fa-4x"></i>
+      <h4>Health Care</h4>
+      <p>Book lab tests online for home sample collection and get reports online</p>
+          </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+
+
+</body>
+</html>
