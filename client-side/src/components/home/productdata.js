@@ -2,7 +2,7 @@
 export const products = [
     { 
         id: 'product1',
-        url: 'https://scontent.fdac157-1.fna.fbcdn.net/v/t39.30808-6/338569469_897646541350030_8427662721631553217_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHGy7XnZTIx66J_ZPjnj_4KQ-Efj-JpnTtD4R-P4mmdO3BlDI05cajk9P0dD14GSGgWPt9YhDSEKx9Xis39RYur&_nc_ohc=-A8sW8jU4ooAX8lA47z&_nc_ht=scontent.fdac157-1.fna&oh=00_AfCCXtoEyWoDJw32ifIcWDcF9FRSOP2SBOixHtHLT6LoxQ&oe=64669EC5',
+        url: 'https://scontent.fdac135-1.fna.fbcdn.net/v/t39.30808-6/338569469_897646541350030_8427662721631553217_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHGy7XnZTIx66J_ZPjnj_4KQ-Efj-JpnTtD4R-P4mmdO3BlDI05cajk9P0dD14GSGgWPt9YhDSEKx9Xis39RYur&_nc_ohc=iRZVSm9ViUUAX-ByeTs&_nc_ht=scontent.fdac135-1.fna&oh=00_AfBVjYG057Rce6t2DoYWHDB3KksXa_H4jRwgWag_us0pCA&oe=647C5F85',
         title: {
             shortTitle: 'Cerelac ',
             longTitle: 'Baby Item Celeralc  (1.5 L, Silver)'
@@ -16,6 +16,7 @@ export const products = [
         discount: 'Extra 10% Off', 
         tagline: 'Deal of the day' 
     },
+    
     { 
         id: 'product2',
         url:'https://scontent.fdac157-1.fna.fbcdn.net/v/t39.30808-6/338985685_766162414820063_976028713570768086_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGFGF_SRWil2IMAewN_BKPza5sN51zllIlrmw3nXOWUiYONcKSWXv2eWk3wg4qCmxhIvkeWZGE-jMZNlRTUKtu0&_nc_ohc=wzSRs_10ls0AX9fRDgg&_nc_oc=AQkYr2ODOmZWBGED3GnPezQqGuIKlUwqbGgdGLra--hCCQi1zIHEE5eOz3iGOdAESPg&_nc_ht=scontent.fdac157-1.fna&oh=00_AfBa9EDNFDIHov8iL6ip5UI4l2iDTVgWWfDZ39gjvj-FEQ&oe=646766AF',

@@ -14,7 +14,7 @@ const Navbaar = () => {
                 <nav>
                     <div className='left' >
                         <div className='navlogo' >
-                       <img className="logo" src={logo} alt="" /> 
+                     <NavLink to="http://localhost:3000/">   <img className="logo"  src={logo} alt="" /> </NavLink> 
                         </div>
 
                         <div className='nav_searchbaar' >

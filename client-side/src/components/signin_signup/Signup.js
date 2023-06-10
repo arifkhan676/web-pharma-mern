@@ -116,7 +116,7 @@ const Signup = () => {
                 <button className='signin_btn' onClick={senddata} > Continue </button>
                 <div className="signin_info">
               <p>Already have an account?</p>
-              <NavLink to='/register' > Sign Up </NavLink>
+              <NavLink to='/login' > Sign in </NavLink>
             </div>
                
 

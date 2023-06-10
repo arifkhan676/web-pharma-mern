@@ -55,6 +55,7 @@ userSchema.pre("save", async function(next){
   next();
 })
 
+//token generate
 
 userSchema.methods.generateAuthtoken = async function(){
     try{
@@ -67,6 +68,18 @@ userSchema.methods.generateAuthtoken = async function(){
     console.log(error);
     }
 }
+
+//add to cart data
+userSchema.methods.addcartdata = async function(cart){
+    try {
+        this.carts = this.carts.concat(cart);
+        await this.save();
+        return this.carts;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 const USER = new mongoose.model("USER",userSchema);
 

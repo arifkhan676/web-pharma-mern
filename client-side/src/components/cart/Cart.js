@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import leftPic from "../images/menPro.jpg"
 import { Divider } from '@mui/material';
 import "./cart.css"
 import { useParams } from 'react-router-dom';
@@ -30,8 +29,35 @@ const Cart = () => {
     }
     useEffect(()=>{
         getindata();
-    },[id]);
-     
+    }, [id] );
+    
+    //adding cart function
+
+    const addtocart = async(id)=>{
+      const checkres = await fetch(`/addcart/${id}`,{
+        method:"POST",
+        headers:{
+            Accept:"applicaton/json",
+            "Content-Type":"applicaton/json"
+        },
+        body: JSON.stringify({
+            inData
+        }),
+        credentials:"include"
+      });
+
+      const data1 = await checkres.json();
+      console.log(data1 + "frontend data");
+
+      if(checkres.status === 201 || !data1){
+        console.log("User Invalid");
+        alert("user invalid");
+      }else{
+        alert("data added into cart");
+      }
+
+    }
+
     return (
         <div className='cart_section'>
             {inData && Object.keys(inData).length && 
@@ -39,7 +65,7 @@ const Cart = () => {
                 <div className="left_cart">
                     <img src={inData.url} alt="menPro" />
                     <div className="cart_btn">
-                        <button className='cart_btn1'>Add to Cart</button>
+                        <button className='cart_btn1' onClick={()=>addtocart(inData.id)} >Add to Cart</button>
                         <button className='cart_btn2'>Buy Now</button>
                     </div>
                 </div>

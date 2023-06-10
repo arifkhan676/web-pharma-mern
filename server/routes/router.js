@@ -91,7 +91,7 @@ router.get("/getproducts", async(req,res)=>{
             const token = await loginUser.generateAuthtoken();
             console.log(token);
 
-            res.cookie("web-pharma",token,{
+            res.cookie("webpharma",token,{
              expires:new Date(Date.now()+900000),
              httpOnly:true
             })
@@ -108,22 +108,32 @@ router.get("/getproducts", async(req,res)=>{
         }
     }
     catch(error){
-        res.status(201).json({error:"Invalid address"});
+        res.status(400).json({error:"Invalid address"});
     }
    })
 
    //adding data into cart
 
-   router.post("/addcart/:id",authenicate,async(req,res,next)=>{
+   router.post("/addcart/:id",authenicate,async(req,res)=>{
         try {
             const {id} = req.params;
-            const cart = Products.findOne({id:id});
-            console.log(cart);
+            const cart = await Products.findOne({id:id});
+            console.log(cart +"cart value");
             
             const UserContact = await USER.findOne({_id:req.userID});
+            console.log(UserContact);
+
+            if(UserContact){
+                const cartData = await UserContact.addcartdata(cart);
+                await UserContact.save();
+                console.log(cartData);
+                res.status(201).json(UserContact);
+            }else{
+                res.status(401).json({error:"invalid user"});
+            }
 
         } catch (error) {
-            console.log(error);
+            res.status(401).json({error:"invalid user"});
         }
    })
 

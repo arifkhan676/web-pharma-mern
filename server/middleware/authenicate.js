@@ -4,7 +4,7 @@ const secretKey = process.env.KEY
 
 const authenicate = async(req,res,next)=>{
     try {
-        const token = req.cookies.web-pharma;
+        const token = req.cookies.webpharma;
         
         const verifyToken = jwt.verify(token,secretKey);
         console.log(verifyToken);
@@ -22,7 +22,7 @@ const authenicate = async(req,res,next)=>{
         next();
 
     } catch (error) {
-        res.status(401).json("unauthorized:no token provides");
+        res.status(401).send("unauthoriz:No token provided");
         console.log(error);
     }
 }
