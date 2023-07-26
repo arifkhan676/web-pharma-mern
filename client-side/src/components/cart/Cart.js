@@ -3,7 +3,7 @@ import { Divider } from '@mui/material';
 import "./cart.css"
 import { useParams } from 'react-router-dom';
 
-const Cart = () => {
+const Cart = (props) => {
 
     const {id} = useParams("");
     //console.log(id);
@@ -33,7 +33,7 @@ const Cart = () => {
     
     //adding cart function
 
-    const addtocart = async(id)=>{
+  /*  const addtocart = async(id)=>{
       const checkres = await fetch(`/addcart/${id}`,{
         method:"POST",
         headers:{
@@ -56,7 +56,17 @@ const Cart = () => {
         alert("data added into cart");
       }
 
-    }
+    } */
+
+    const [cartmenu,setCartmenu] = useState(0);
+
+    function cartSec(cartSec){
+    
+       setCartmenu(cartmenu+1);
+     }
+     console.log(cartmenu);
+    
+
 
     return (
         <div className='cart_section'>
@@ -65,7 +75,7 @@ const Cart = () => {
                 <div className="left_cart">
                     <img src={inData.url} alt="menPro" />
                     <div className="cart_btn">
-                        <button className='cart_btn1' onClick={()=>addtocart(inData.id)} >Add to Cart</button>
+                        <button className='cart_btn1' onClick={cartSec} >Add to Cart</button>
                         <button className='cart_btn2'>Buy Now</button>
                     </div>
                 </div>

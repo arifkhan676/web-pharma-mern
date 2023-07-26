@@ -5,16 +5,20 @@ import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from "../images/logo.png";
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
-const Navbaar = () => {
+
+
+const Navbaar = (props) => {
+
+
     return (
         <div>
             <header>
                 <nav>
                     <div className='left' >
                         <div className='navlogo' >
-                     <NavLink to="http://localhost:3000/">   <img className="logo"  src={logo} alt="" /> </NavLink> 
+                            <NavLink to="http://localhost:3000/">   <img className="logo" src={logo} alt="" /> </NavLink>
                         </div>
 
                         <div className='nav_searchbaar' >
@@ -26,15 +30,15 @@ const Navbaar = () => {
                     </div>
                     <div className='right' >
                         <div className='nav_btn' >
-                        <NavLink to="/login" > <p>Sign In</p> </NavLink>    
+                            <NavLink to="/login" > <p>Sign In</p> </NavLink>
                         </div>
                         <div className='cart_btn' >
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={props.cartmenu} color="primary">
                                 <ShoppingCartIcon id="icon" />
                             </Badge>
                             <p> Cart </p>
                         </div>
-                        <Avatar className='avtar' /> 
+                        <Avatar className='avtar' />
                     </div>
                 </nav>
             </header>
