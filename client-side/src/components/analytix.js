@@ -25,20 +25,20 @@ const Analytics = () => {
                         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid item xs={5}>
                                 <Stack direction="row" spacing={2}>
-                                    <Card sx={{ width: 100 + '%',height:15 + 'vh', color:'#DDE6ED', backgroundColor: '#1d4f75' }} >
+                                    <Card sx={{ width: 100 + '%', height: 15 + 'vh', color: '#DDE6ED', backgroundColor: '#1d4f75' }} >
                                         <CardContent>
                                             <Typography gutterBottom variant="h5" component="div">
                                                 <Stack spacing={2}>
-                                                <span className='visit' >   Visitors</span>
-                                                <h5> $ <CountUp start={1} end={3200} delay={0.2} /> </h5>
+                                                    <span className='visit' >   Visitors</span>
+                                                    <h5> $ <CountUp start={1} end={3200} delay={0.2} /> </h5>
                                                 </Stack>
                                             </Typography>
                                             <Typography variant="body2" color="text.white">
                                                 Total Earnings
                                             </Typography>
                                         </CardContent>
-                                    </Card>            
-                        </Grid>
+                                    </Card>
+                            </Grid>
                     </Box>
                 </Box>
             </div>

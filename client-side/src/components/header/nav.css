@@ -6,6 +6,36 @@ header{
     top:0;
     z-index:2;
 }
+.card{
+    position: relative;
+    top: 40px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    border-radius: 5px;
+}
+.card-body{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+.button{
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:6px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:2px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+    margin-top: 10px;
+}
 
 header nav{
     display: flex;

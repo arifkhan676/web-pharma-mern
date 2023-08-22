@@ -5,72 +5,72 @@ const jwt = require("jsonwebtoken");
 const secretKey = process.env.KEY;
 
 const userSchema = new mongoose.Schema({
-    fname:{
-        type:String,
-        required:true,
-        trim:true
+    fname: {
+        type: String,
+        required: true,
+        trim: true
     },
-     email:{
-        type:String,
-        required:true,
-        unique:true,
-        validate(value){
-            if(!validator.isEmail(value)){
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        validate(value) {
+            if (!validator.isEmail(value)) {
                 throw new Error("not valid email address");
             }
         }
-     },
-     mobile:{
-        type:String,
-        required:true,
-        unique:true,
-        maxlenght:10
-     },
-     password:{
-        type:String,
-        required:true,
-        minlenght:6
-     },
-     cpassword:{
-        type:String,
-        required:true,
-        minlenght:6
-     },
-     tokens : [
+    },
+    mobile: {
+        type: String,
+        required: true,
+        unique: true,
+        maxlenght: 10
+    },
+    password: {
+        type: String,
+        required: true,
+        minlenght: 6
+    },
+    cpassword: {
+        type: String,
+        required: true,
+        minlenght: 6
+    },
+    tokens: [
         {
             token: {
-                type:String,
-                required:true,
+                type: String,
+                required: true,
             }
         }
-     ],
-     carts : Array
+    ],
+    carts: Array
 });
 
-userSchema.pre("save", async function(next){
-    if(this.isModified("password")){
-    this.password = await bcrypt.hash(this.password,12);
-    this.cpassword = await bcrypt.hash(this.cpassword,12);
-}
-  next();
+userSchema.pre("save", async function (next) {
+    if (this.isModified("password")) {
+        this.password = await bcrypt.hash(this.password, 12);
+        this.cpassword = await bcrypt.hash(this.cpassword, 12);
+    }
+    next();
 })
 
 //token generate
 
-userSchema.methods.generateAuthtoken = async function(){
-    try{
-        let tokenPro = jwt.sign({_id:this._id},secretKey);
-        this.tokens = this.tokens.concat({token:tokenPro});
+userSchema.methods.generateAuthtoken = async function () {
+    try {
+        let tokenPro = jwt.sign({ _id: this._id }, secretKey);
+        this.tokens = this.tokens.concat({ token: tokenPro });
         await this.save();
         return tokenPro;
     }
-    catch(error){
-    console.log(error);
+    catch (error) {
+        console.log(error);
     }
 }
 
 //add to cart data
-userSchema.methods.addcartdata = async function(cart){
+userSchema.methods.addcartdata = async function (cart) {
     try {
         this.carts = this.carts.concat(cart);
         await this.save();
@@ -81,7 +81,7 @@ userSchema.methods.addcartdata = async function(cart){
 }
 
 
-const USER = new mongoose.model("USER",userSchema);
+const USER = new mongoose.model("USER", userSchema);
 
 module.exports = USER;
 

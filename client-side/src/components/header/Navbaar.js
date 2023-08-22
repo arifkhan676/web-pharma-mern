@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./nav.css";
 import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
@@ -6,11 +6,11 @@ import Avatar from '@mui/material/Avatar';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from "../images/logo.png";
 import { NavLink } from "react-router-dom"
+import { PopupMenu } from "react-simple-widgets";
 
 
 
 const Navbaar = (props) => {
-
 
     return (
         <div>
@@ -38,7 +38,25 @@ const Navbaar = (props) => {
                             </Badge>
                             <p> Cart </p>
                         </div>
-                        <Avatar className='avtar' />
+
+                        <PopupMenu>
+
+                            <Avatar className='avtar' />
+
+                            <div className="card">
+                                <div className="card-body px-4 py-4">
+                                    <button className="button" > Profile </button>
+                                    <button className="button">
+                                        Logout
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </PopupMenu>
+
+
+
                     </div>
                 </nav>
             </header>
@@ -46,4 +64,4 @@ const Navbaar = (props) => {
     )
 }
 
-export default Navbaar
+export default Navbaar 
