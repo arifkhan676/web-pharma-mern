@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import "./nav.css";
 import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
@@ -7,10 +7,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from "../images/logo.png";
 import { NavLink } from "react-router-dom"
 import { PopupMenu } from "react-simple-widgets";
+import { LoginContext } from '../contextAPI/ContextProvider';
 
 
+const Navbaar = () => {
 
-const Navbaar = (props) => {
+    const { account, setAcoount } = useContext(LoginContext)
+    console.log(account);
 
     return (
         <div>
@@ -18,7 +21,7 @@ const Navbaar = (props) => {
                 <nav>
                     <div className='left' >
                         <div className='navlogo' >
-                            <NavLink to="http://localhost:3000/">   <img className="logo" src={logo} alt="" /> </NavLink>
+                            <NavLink to="/">   <img className="logo" src={logo} alt="" /> </NavLink>
                         </div>
 
                         <div className='nav_searchbaar' >
@@ -33,22 +36,45 @@ const Navbaar = (props) => {
                             <NavLink to="/login" > <p>Sign In</p> </NavLink>
                         </div>
                         <div className='cart_btn' >
-                            <Badge badgeContent={props.cartmenu} color="primary">
-                                <ShoppingCartIcon id="icon" />
-                            </Badge>
+                            {
+                                account ? <NavLink to='/buynow' >
+                                    <Badge badgeContent={account.carts.length} color="primary">
+                                        <ShoppingCartIcon id="icon" />
+                                    </Badge>
+                                </NavLink> :
+                                    <NavLink to='/login' >
+                                        <Badge badgeContent={account.carts.length} color="primary">
+                                            <ShoppingCartIcon id="icon" />
+                                        </Badge>
+                                    </NavLink>
+                            }
                             <p> Cart </p>
                         </div>
 
                         <PopupMenu>
-
-                            <Avatar className='avtar' />
+                            {
+                                account ? <Avatar className='avtar'> {account.fname[0].toUpperCase()} </Avatar> :
+                                    <Avatar className='avtar'>  </Avatar>
+                            }
 
                             <div className="card">
                                 <div className="card-body px-4 py-4">
                                     <button className="button" > Profile </button>
-                                    <button className="button">
-                                        Logout
-                                    </button>
+                                    {
+                                        account ?
+                                            <NavLink to='/'>
+                                                <button className="button" >
+                                                    Logout
+                                                </button>
+                                            </NavLink>
+                                            :
+                                            <NavLink to='/login'>
+                                                <button className="button" >
+                                                    Login
+                                                </button>
+                                            </NavLink>
+                                    }
+
 
                                 </div>
                             </div>

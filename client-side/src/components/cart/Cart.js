@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Divider } from '@mui/material';
 import "./cart.css"
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { LoginContext } from '../contextAPI/ContextProvider';
 
 const Cart = (props) => {
 
   const { id } = useParams("");
   //console.log(id);
+  const history = useNavigate('');
+
+  const { account, setAcoount } = useContext(LoginContext)
 
   const [inData, setinData] = useState([]);
   console.log(inData);
@@ -47,26 +51,19 @@ const Cart = (props) => {
     });
 
     const data1 = await checkres.json();
-    console.log(data1 + "frontend data");
+    console.log(data1 + 'front end data');
 
     if (checkres.status === 401 || !data1) {
-      // console.log("User Invalid");
+      console.log("User Invalid");
       alert("user invalid");
     } else {
       alert("data added into cart");
+      console.log("valid");
+      history('/buynow');
+      setAcoount(data1);
     }
 
   }
-  /* 
-     const [cartmenu,setCartmenu] = useState(0);
- 
-     function cartSec(cartSec){
-     
-        setCartmenu(cartmenu+1);
-      }
-      console.log(cartmenu);
-     
- */
 
   return (
     <div className='cart_section'>
