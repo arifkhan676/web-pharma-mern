@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<Signin />}> </Route>
         <Route path="/register" element={<Signup />}> </Route>
         <Route path="/getproductsone/:id" element={<Cart />}> </Route>
-        <Route path="/buynow" element={<Buynow />}> </Route>
+        <Route path="/Buynow" element={<Buynow />}> </Route>
       </Routes>
       <Footer />
 

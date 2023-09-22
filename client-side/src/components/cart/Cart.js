@@ -59,7 +59,7 @@ const Cart = (props) => {
     } else {
       alert("data added into cart");
       console.log("valid");
-      history('/buynow');
+      history('/Buynow');
       setAcoount(data1);
     }
 

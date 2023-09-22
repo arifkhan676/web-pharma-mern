@@ -137,4 +137,16 @@ router.post("/addcart/:id", authenicate, async (req, res) => {
     }
 })
 
+//  get  carts details
+
+router.get("/cartdetails", authenicate, async (req, res) => {
+    try {
+        const buyUser = await USER.findOne({ _id: req.userID });
+        res.status(201).json(buyUser);
+    }
+    catch (error) {
+        console.log("error" + error.message);
+    }
+});
+
 module.exports = router;
