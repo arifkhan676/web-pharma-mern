@@ -13,7 +13,7 @@ import { LoginContext } from '../contextAPI/ContextProvider';
 const Navbaar = () => {
 
     const { account, setAcoount } = useContext(LoginContext)
-    console.log(account);
+    // console.log(account);
 
     return (
         <div>
@@ -53,7 +53,7 @@ const Navbaar = () => {
 
                         <PopupMenu>
                             {
-                                account ? <Avatar className='avtar'> {account.fname[0].toUpperCase()} </Avatar> :
+                                account ? <Avatar className='avtar2'> {account.fname[0].toUpperCase()} </Avatar> :
                                     <Avatar className='avtar'>  </Avatar>
                             }
 
